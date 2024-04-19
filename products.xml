@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<traditional_products>
+    <product>
+        <titlos>Κρόκος Κοζάνης</titlos>
+        
+        <price>20.00</price>
+        <year>1985</year>
+        <creator>Γεωργικες επιχειρήσεις </creator>
+    </product>
+    <product>
+        <titlos>Ούζο Μυτιλήνης</titlos>
+        
+        <price>15.00</price>
+        <year>1970</year>
+        <creator>Αποστακτήριες</creator>
+    </product>
+    <product>
+        <titlos>Σαμιανό Κρασί</titlos>
+        
+        <price>25.00</price>
+        <year>1982</year>
+        <creator>Οινοποιείες</creator>
+    </product>
+    <product>
+        <titlos>Καφές Κομοτηνής</titlos>
+        
+        <price>8.00</price>
+        <year>1975</year>
+        <creator>Καφεμπορικές επιχειρήσεις</creator>
+    </product>
+</traditional_products>

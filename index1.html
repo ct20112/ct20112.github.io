@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2 style="text-align: center;">Τοπικά Παραδοσιακά Προϊόντα</h2>
+<h2 style="text-align: center;">Τμήμα Πολιτισμικής Τεχνολογίας και Επικοινωνίας</h2>
+<p> Εργασία στα πλαίσια μαθήματος του Προγραμματισμού στον Παγκόσμιο Ιστό 2024.</p> 
+<p>Ταξινόμηση κατά:</p>
+<select id="order" onchange="loadProducts()">
+    <option value="titlos">Προϊόν</option>
+    <option value="year">Έτος(Νεότερου)</option>
+    <option value="creator">Δημιουργός</option>
+    <option value="price">Τιμή(Φθήνουσα)</option>
+</select>
+<br>
+<br><br>
+
+<table id="demo"></table>
+
+<script>
+function loadXMLDoc() {
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {     // καλεί τη συνάρτηση myFunction και περνά το αντικείμενο XMLHttpRequest ως παράμετρο.
+	
+			myFunction(this);
+		}
+	};
+	xmlhttp.open("GET", "products.xml", true);
+	xmlhttp.send();
+	}
+	
+function loadProducts() {
+    var products = [
+        { titlos: "Κρόκος Κοζάνης", year: "1985", creator: "Γεωργικες επιχειρήσεις", price: "20.00"  },
+        { titlos: "Ούζο Μυτιλήνης", year: "1970", creator: "Αποστακτήριες", price: "15.00"  },
+        { titlos: "Σαμιανό Κρασί", year: "1982", creator: "Οινοποιείες", price: "25.00" },
+        { titlos: "Καφές Κομοτηνής", year: "1975", creator: "Καφεμπορικές επιχειρήσεις", price: "8.00" },
+    ];
+
+    var orderValue = document.getElementById("order").value;
+    if (orderValue) {
+        products.sort(function(a, b) {
+            // μετατρέπει τις τιμές σε αριθμητικές τιμές πριν την ταξινόμηση.
+            var aValue = (orderValue === "price" || orderValue === "year") ? parseFloat(a[orderValue]) : a[orderValue];
+            var bValue = (orderValue === "price" || orderValue === "year") ? parseFloat(b[orderValue]) : b[orderValue];
+
+            if (orderValue === "year") {
+                if (aValue < bValue) return 1;
+                if (aValue > bValue) return -1;
+                return 0;
+            } else { //   (από το μικρότερο στο μεγαλύτερο).
+                if (aValue > bValue) return 1;
+                if (aValue < bValue) return -1;
+                return 0;
+            }
+        });
+    }
+
+    var table = "<tr><th>Τίτλος</th><th>Έτος</th><th>Δημιουργός</th><th>Τιμή</th></tr>";
+    for (var i = 0; i < products.length; i++) {
+        var product = products[i];
+        table += "<tr><td>" + product.titlos + "</td><td>" + product.year + "</td><td>" + product.creator + "</td><td>" + product.price + "</td></tr>"; 
+		//δημιουργεί μια γραμμή στον πίνακα  με τα στοιχεία του κάθε προϊόντος.
+    }
+    document.getElementById("demo").innerHTML = table;
+}
+</script>
+</body>
+</html>

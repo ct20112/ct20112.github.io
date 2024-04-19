@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+	background-color: #F8F3EA;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #8481bc; 
+    color: black;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px 2px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #8481bc; 
+}
+
+table {
+    width: 40%;
+    border-collapse: collapse;
+    background-color: #6DA5C0;
+    margin: auto;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ffff; /* Προσθέτει γραμμή κάτω από κάθε th και td */
+}
+
+th {
+    background-color:  #8481bc; 
+    font-weight: bold; 
+	color:white;
+}
+
+
+
+
+
+
